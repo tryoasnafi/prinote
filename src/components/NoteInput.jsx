@@ -1,4 +1,5 @@
 import React from 'react';
+import autoBind from 'auto-bind';
 
 export default class NoteInput extends React.Component {
   constructor(props) {
@@ -12,9 +13,7 @@ export default class NoteInput extends React.Component {
       titleRemainingChars: this.TITLE_MAX_LENGTH,
     };
 
-    this.handleSubmitEvent = this.handleSubmitEvent.bind(this);
-    this.handleTitleChangeEvent = this.handleTitleChangeEvent.bind(this);
-    this.handleBodyChangeEvent = this.handleBodyChangeEvent.bind(this);
+    autoBind(this);
   }
 
   handleTitleChangeEvent = (event) => {

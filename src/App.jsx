@@ -1,4 +1,5 @@
 import React from 'react';
+import autoBind from 'auto-bind';
 
 import { getInitialData } from './utils/index';
 import './styles/style.css';
@@ -16,13 +17,7 @@ export default class App extends React.Component {
       showModal: false,
     };
 
-    this.handleTabClick = this.handleTabClick.bind(this);
-    this.handleArchive = this.handleArchive.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-    this.handleSearchNotesEvent = this.handleSearchNotesEvent.bind(this);
-    this.handleShowFormEvent = this.handleShowFormEvent.bind(this);
-    this.handleAddNote = this.handleAddNote.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
+    autoBind(this);
   }
 
   handleTabClick(index) {
