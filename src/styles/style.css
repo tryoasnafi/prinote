@@ -1,0 +1,314 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #f59e0b;
+  --dark-color: #374151;
+  --gray-color: #f8f8f8;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+.App {
+  display: flex;
+  height: 100%;
+}
+
+.navbar {
+  position: fixed;
+  width: 20%;
+  height: 100%;
+  background-color: var(--primary-color);
+  color: #fff;
+  z-index: 10;
+}
+
+.navbar-brand {
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.navbar-nav .nav-item {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.navbar-nav .nav-item:hover {
+  background-color: var(--dark-color);
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+  background-color: var(--gray-color);
+  color: var(--dark-color);
+}
+
+.navbar-nav .nav-link {
+  font-family: "Nunito", sans-serif;
+  width: 100%;
+  border: none;
+  text-align: start;
+  font-weight: 600;
+  color: inherit;
+  margin-top: 0;
+  padding: 0.7rem 0 0.7rem 1rem;
+  cursor: pointer;
+  background-color: inherit;
+}
+
+.main {
+  width: 80%;
+  margin-left: 20%;
+  min-height: 100vh;
+  padding: 1rem;
+  background-color: var(--gray-color);
+}
+
+.main .form-group.search {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--dark-color);
+}
+
+.main .form-group.search:focus-within {
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.main .form-group.search:focus-within svg {
+  color: var(--primary-color);
+}
+
+.main .form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.main .search input {
+  font-family: "Nunito", sans-serif;
+  width: 100%;
+  background-color: var(--gray-color);
+  color: var(--dark-color);
+  border: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.main .search input:focus {
+  outline: none;
+}
+
+.note-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 1rem;
+}
+
+.note-item {
+  position: relative;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+  /* cursor: pointer; */
+}
+
+.note-item:hover {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.25);
+}
+
+.note-item__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 4px;
+}
+
+.note-item__body {
+  color: #4b5563;
+  margin-bottom: 2.5rem;
+}
+
+.note-item__date {
+  font-size: 0.8rem;
+  border-left: 2px solid var(--primary-color);
+  padding-left: 8px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.note-item__actions {
+  display: flex;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+}
+
+.note-item__actions .btn {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  margin-right: 4px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.btn-archive:hover {
+  background-color: #fde68a;
+}
+
+.btn-delete {
+  background-color: #dc2626;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background-color: #b91c1c;
+}
+
+.btn-add {
+  position: fixed;
+  bottom: 48px;
+  right: 24px;
+  background-color: var(--primary-color);
+  color: #fff;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  display: none;
+}
+
+.modal.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-dialog {
+  max-width: 500px;
+  width: 100%;
+  margin: 1.75rem auto;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 16px;
+  width: 100%;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--dark-color);
+}
+
+.modal-header .modal-header__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.modal-header .modal-header__close {
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+}
+
+.modal-body {
+  padding: 1rem;
+  width: 100%;
+}
+
+.form-note {
+  width: 100%;
+}
+
+.form-note .form-group {
+  margin-bottom: 0.5rem;
+}
+
+.form-note .form-control {
+  font-family: "Nunito", sans-serif;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--dark-color);
+}
+
+.form-note__title-chars {
+  font-size: 0.8rem;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+
+.form-note__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 4px;
+}
+
+.form-note__body {
+  color: var(--dark-color);
+  margin-bottom: 2.5rem;
+  resize: vertical;
+}
+
+.form-note__submit {
+  font-family: "Nunito", sans-serif;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.form-note__submit:hover {
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
+}
